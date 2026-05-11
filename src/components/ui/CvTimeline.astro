@@ -7,16 +7,16 @@ interface Props {
 }
 const { elements, colored } = Astro.props
 ---
-<ul class='timeline timeline-snap-icon max-md:timeline-compact timeline-vertical'>
+<ul class='timeline timeline-snap-icon timeline-compact timeline-vertical'>
 	{
-		elements.map((element, index) => (
+		elements.map((element) => (
 			<li>
 				<div class='timeline-middle'>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
 						viewBox='0 0 20 20'
 						fill='currentColor'
-						class:list={[{ 'text-primary': colored }, 'h-5 w-5']}
+						class:list={[{ 'text-[#8B5E3C]': colored }, 'h-5 w-5']}
 					>
 						<path
 							fill-rule='evenodd'
@@ -25,14 +25,14 @@ const { elements, colored } = Astro.props
 						/>
 					</svg>
 				</div>
-				<div class={`${index % 2 === 0 ? 'timeline-start' : 'timeline-end'} mb-10 md:text-end`}>
+				<div class='timeline-end mb-10'>
 					<time class='font-mono italic'>{element.time}</time>
 					<div class='text-lg font-black'>{isExperience(element) ? element.title : element.degree}</div>
-					<div class='whitespace-pre-line text-sm mt-2'>{isExperience(element) ? element.company : element.school}</div>
+					<div class='text-sm opacity-70'>{isExperience(element) ? element.company : element.school}</div>
 					<div class='text-xs opacity-50'>{element.location}</div>
 					<div class='whitespace-pre-line text-sm mt-2'>{element.description}</div>
 				</div>
-				<hr class:list={[{ 'bg-primary': colored }]} />
+				<hr class:list={[{ 'bg-[#8B5E3C]': colored }]} />
 			</li>
 		))
 	}
