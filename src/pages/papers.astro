@@ -1,53 +1,130 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { publications } from "@/data/cv";
-import { highlightAuthor } from "@/lib/utils";
-import {template} from "@/settings";
 
-const ALL_PAPERS = publications; // This will be replaced with dynamic data later
+const brandPieces = publications.filter(p => p.journal === 'WeChat Official Account' && 
+  ['上海乐器展 | Shanghai Music Expo', '世界钢琴日 | World Piano Day', '年度总结 | Year in Review'].includes(p.title))
+
+const contestPieces = publications.filter(p => p.journal === 'WeChat Official Account' && 
+  ['大师班 | Masterclass', '决赛 | Final Round', '总决赛一览 | Grand Final Overview'].includes(p.title))
 ---
 
-<Layout title="Papers">
+<Layout title="Portfolio">
   <div class="prose max-w-none">
-    <h1 class="text-3xl font-bold mb-8">Publications</h1>
 
-    <div class="space-y-8">
-      {
-        ALL_PAPERS.map((paper) => (
-          <div class="card bg-base-200">
+    <h1 class="text-3xl font-bold mb-2">Copywriting Portfolio / 文案作品集</h1>
+    <p class="text-base opacity-60 mb-10">以下为公众号品牌图文代表作，涵盖品牌推广与赛事报道两大方向。<br/>Selected WeChat articles across brand promotion and competition coverage.</p>
+
+    <!-- 品牌文案 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-1 border-b pb-2">品牌内容 · Brand Content</h2>
+      <p class="text-sm opacity-50 mb-6">节日借势、展会推广、年度回顾等品牌向图文内容</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 not-prose">
+        {brandPieces.map(piece => (
+          <div class="card bg-base-200 hover:shadow-md transition-shadow">
             <div class="card-body">
-              <h2 class="card-title text-xl">
-                <a href={template.base + paper.link} class="hover:text-accent">
-                  {paper.title}
-                </a>
-              </h2>
-              <p class="text-base mb-2">
-                <span class="font-medium">Authors:</span>{" "}
-                <span set:html={highlightAuthor(paper.authors)} />
-              </p>
-              <p class="text-sm mb-3">
-                <span class="italic">{paper.journal}</span> • {paper.time}
-              </p>
-              <p class="text-sm text-base-content/80">{paper.abstract}</p>
+              <h3 class="font-bold text-base leading-snug">{piece.title}</h3>
+              <p class="text-sm opacity-60 mt-1">{piece.abstract}</p>
               <div class="card-actions justify-end mt-4">
-                <a href={paper.link} class="btn btn-sm btn-secondary text-secondary-content">
-                  Read Paper
+                <a href={piece.link} target="_blank" class="btn btn-sm btn-secondary text-secondary-content">
+                  阅读原文 →
                 </a>
               </div>
             </div>
           </div>
-        ))
-      }
-    </div>
-
-    <div class="flex justify-center mt-8">
-      <div class="join">
-        <button class="join-item btn btn-sm">«</button>
-        <button class="join-item btn btn-sm">1</button>
-        <button class="join-item btn btn-sm btn-active">2</button>
-        <button class="join-item btn btn-sm">3</button>
-        <button class="join-item btn btn-sm">»</button>
+        ))}
       </div>
-    </div>
+    </section>
+
+    <!-- 赛事文案 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-1 border-b pb-2">赛事报道 · Competition Coverage</h2>
+      <p class="text-sm opacity-50 mb-6">大师班、决赛、总决赛等赛事全程跟踪报道</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 not-prose">
+        {contestPieces.map(piece => (
+          <div class="card bg-base-200 hover:shadow-md transition-shadow">
+            <div class="card-body">
+              <h3 class="font-bold text-base leading-snug">{piece.title}</h3>
+              <p class="text-sm opacity-60 mt-1">{piece.abstract}</p>
+              <div class="card-actions justify-end mt-4">
+                <a href={piece.link} target="_blank" class="btn btn-sm btn-secondary text-secondary-content">
+                  阅读原文 →
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 小红书数据 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-1 border-b pb-2">账号运营数据 · Xiaohongshu Stats</h2>
+      <p class="text-sm opacity-50 mb-6">小红书账号内容运营数据概览</p>
+      <div class="not-prose grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        {[
+          { number: '4.8w+', label: '笔记总赞评', sub: 'Total Likes & Comments' },
+          { number: '3篇', label: '浏览量 10w+', sub: 'Posts over 100K Views' },
+          { number: '12篇', label: '浏览量 1w+', sub: 'Posts over 10K Views' },
+          { number: '1篇', label: '赞藏 5000+', sub: 'Post with 5K+ Saves' },
+        ].map(item => (
+          <div class="border rounded-xl p-4 text-center">
+            <div class="text-2xl font-bold">{item.number}</div>
+            <div class="text-sm font-medium mt-1">{item.label}</div>
+            <div class="text-xs opacity-50 mt-0.5">{item.sub}</div>
+          </div>
+        ))}
+      </div>
+      <div class="not-prose">
+        <a href="https://xhslink.com/m/1JIYxGNlQx" target="_blank" class="btn btn-outline btn-sm">
+          查看小红书主页 →
+        </a>
+      </div>
+    </section>
+
+    <!-- 策划项目 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-1 border-b pb-2">策划项目 · Campaign Planning</h2>
+      <p class="text-sm opacity-50 mb-6">线下活动策划方案，涵盖快闪与品牌体验活动</p>
+      <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-5">
+        {[
+          {
+            title: '线下路演策划方案',
+            sub: 'WPS / 金山文档 Pop-up Event',
+            desc: '针对 WPS 金山文档品牌的线下路演活动策划方案，包含活动流程、执行细节与推广策略。',
+            tag: '已落地参考 · Executed Reference',
+            tagStyle: 'badge-success',
+            link: 'https://www.kdocs.cn/l/cmgmaYTpJ3hq',
+          },
+          {
+            title: '拆解钢琴品牌体验活动',
+            sub: 'WPS / 金山文档 Piano Deconstruction Event',
+            desc: '以"拆解钢琴"为核心创意的品牌体验活动策划，融合艺术装置与互动体验，因合作方原因未能落地。',
+            tag: '概念方案 · Concept Proposal',
+            tagStyle: 'badge-warning',
+            link: 'https://www.kdocs.cn/l/cbG178mfaIbu',
+          },
+        ].map(project => (
+          <div class="card bg-base-200 hover:shadow-md transition-shadow">
+            <div class="card-body">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <h3 class="font-bold text-base">{project.title}</h3>
+                  <p class="text-xs opacity-50 mt-0.5">{project.sub}</p>
+                </div>
+                <span class={`badge ${project.tagStyle} badge-sm whitespace-nowrap`}>{project.tag}</span>
+              </div>
+              <p class="text-sm opacity-60 mt-3">{project.desc}</p>
+              <div class="card-actions justify-end mt-4">
+                <a href={project.link} target="_blank" class="btn btn-sm btn-secondary text-secondary-content">
+                  查看方案 →
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
   </div>
 </Layout>
