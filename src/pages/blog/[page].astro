@@ -1,73 +1,77 @@
 ---
-import Pagination from '@/components/ui/Pagination.astro'
 import Layout from '@/layouts/Layout.astro'
-import { trimExcerpt } from '@/lib/utils'
-import { template } from '@/settings'
-import { getCollection } from 'astro:content'
-
-export async function getStaticPaths({ paginate }): Promise<Astro.getStaticPathsResult> {
-    const blogEntries = await getCollection("blog");
-
-    const posts = blogEntries
-        .map(post => ({
-            title: post.data.title,
-            date: post.data.date,
-            badge: post.data.tags[0],
-            excerpt: trimExcerpt(post.data.excerpt),
-            slug: `${template.base}/blog/${post.id}`,
-        }))
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-    return paginate(posts, {
-        pageSize: template.postPerPage,
-    });
-}
-const { page } = Astro.props
 ---
+<Layout title="策划项目 | Fon">
+  <div class="prose max-w-none">
 
-<Layout title='Blog'>
-    <div>
-		<h1 class='text-3xl font-bold mb-8'>Blog Posts</h1>
-		<div class='grid gap-8'>
-			{
-				page.data.map(post => (
-					<article class='card bg-base-200 transition-all'>
-						<div class='card-body'>
-							<div class='flex justify-between items-start'>
-								<h2 class='card-title text-xl'>
-                            <a href={post.slug} class='hover:text-accent'>
-										{post.title}
-									</a>
-								</h2>
-								<div class='badge badge-accent badge-outline p-4'>
-									{post.badge}
-								</div>
-							</div>
-							<time datetime={post.date} class='text-sm text-base-content/71'>
-								{new Date(post.date).toLocaleDateString('en-US', {
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric',
-								})}
-							</time>
-							<p class='mt-4'>{post.excerpt}</p>
-							<div class='card-actions justify-end'>
-								<a
-                            href={post.slug}
-									class='btn btn-sm btn-secondary text-secondary-content'
-								>
-									Read More
-								</a>
-							</div>
-						</div>
-					</article>
-				))
-			}
-		</div>
+    <h1 class="text-3xl font-bold mb-2">策划项目</h1>
+    <p class="text-base opacity-60 mb-10">Campaign Planning & Event Proposals · 活动策划方案</p>
 
-		<div class='flex justify-center mt-8'>
-			<Pagination page={page} />
-		</div>
+    <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+      <!-- 项目一 -->
+      <div class="card bg-base-200 hover:shadow-md transition-shadow">
+        <div class="card-body">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <div>
+              <h2 class="font-bold text-lg">线下路演策划方案</h2>
+              <p class="text-xs opacity-50 mt-0.5">WPS / 金山文档 Pop-up Event</p>
+            </div>
+            <span class="badge badge-success badge-sm whitespace-nowrap">已落地参考</span>
+          </div>
+          <div class="divider my-2"></div>
+          <p class="text-sm opacity-70 mb-4">
+            针对 WPS 金山文档品牌的线下路演活动策划方案，涵盖活动主题策划、现场流程设计、执行细节拆解与推广渠道策略，参考已落地活动改写完成。
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge badge-outline badge-sm">活动策划</span>
+            <span class="badge badge-outline badge-sm">线下执行</span>
+            <span class="badge badge-outline badge-sm">品牌推广</span>
+          </div>
+          <div class="card-actions justify-end">
+            <a href="https://www.kdocs.cn/l/cmgmaYTpJ3hq" target="_blank" class="btn btn-sm btn-secondary text-secondary-content">
+              查看方案 →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 项目二 -->
+      <div class="card bg-base-200 hover:shadow-md transition-shadow">
+        <div class="card-body">
+          <div class="flex items-start justify-between gap-2 mb-2">
+            <div>
+              <h2 class="font-bold text-lg">拆解钢琴品牌体验活动</h2>
+              <p class="text-xs opacity-50 mt-0.5">WPS / 金山文档 Piano Deconstruction Event</p>
+            </div>
+            <span class="badge badge-warning badge-sm whitespace-nowrap">概念方案</span>
+          </div>
+          <div class="divider my-2"></div>
+          <p class="text-sm opacity-70 mb-4">
+            以「拆解钢琴」为核心创意的品牌体验活动策划，将艺术装置与互动体验结合，打造沉浸式品牌场景。因合作方原因未能最终落地，保留完整策划思路与执行框架。
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="badge badge-outline badge-sm">创意策划</span>
+            <span class="badge badge-outline badge-sm">品牌体验</span>
+            <span class="badge badge-outline badge-sm">艺术装置</span>
+          </div>
+          <div class="card-actions justify-end">
+            <a href="https://www.kdocs.cn/l/cbG178mfaIbu" target="_blank" class="btn btn-sm btn-secondary text-secondary-content">
+              查看方案 →
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
+    <!-- 说明 -->
+    <section class="not-prose border rounded-xl p-6 opacity-70">
+      <h3 class="font-bold mb-2 text-sm">关于这些方案 · About These Proposals</h3>
+      <p class="text-sm">
+        线下路演方案是根据朋友希望参考的已落地活动改写而成；拆解钢琴方案为原创策划，因合作方原因未能落地。两份方案均完整呈现了从创意提案到执行细节的全流程思路。
+      </p>
+    </section>
+
+  </div>
 </Layout>
