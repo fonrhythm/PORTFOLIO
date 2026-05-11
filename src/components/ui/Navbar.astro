@@ -3,11 +3,7 @@ import { Image } from 'astro:assets'
 import {profile} from '../../settings'
 import SocialIcons from './SocialIcons.astro'
 import ProfilePictures from '@/assets/profile_pictures.jpg'
-import { getCollection } from 'astro:content'
 import { template } from '@/settings'
-
-const isBlogPopulated = await getCollection('blog').then(collection => collection.length > 0)
-
 const {fullName, title} = profile
 ---
 <aside
@@ -21,27 +17,26 @@ const {fullName, title} = profile
 					src={ProfilePictures}
 					alt={`Profile picture of ${fullName}`}
 				/>
-				<h1 class="text-lg font-black mt-8 hidden lg:block">{title} <span>{fullName}</span></h1>
+				<h1 class="text-lg font-black mt-8 hidden lg:block">{fullName}</h1>
+				<p class="text-sm opacity-60 mt-1 hidden lg:block text-center">{title}</p>
 			</div>
 			<div class='mx-4 mt-16'>
 				<ul class='space-y-4 menu grow shrink menu-md overflow-y-auto'>
 					<li>
-                        <a href={`${template.base}/`} class='text-lg'>Home</a>
+						<a href={`${template.base}/`} class='text-lg'>🏠 Home</a>
 					</li>
 					<li>
-                        <a href={`${template.base}/research`} class='text-lg'>Research</a>
+						<a href={`${template.base}/cv`} class='text-lg'>💼 项目经历</a>
 					</li>
 					<li>
-                        <a href={`${template.base}/papers`} class='text-lg'>Papers</a>
+						<a href={`${template.base}/papers`} class='text-lg'>✍️ 文案作品集</a>
 					</li>
 					<li>
-                        <a href={`${template.base}/cv`} class='text-lg'>CV</a>
-                    </li>
-                    {isBlogPopulated &&
+						<a href={`${template.base}/research`} class='text-lg'>📊 账号运营数据</a>
+					</li>
 					<li>
-                        <a href={`${template.base}/blog/1`} class='text-lg'>Blog</a>
-</li>
-                    }
+						<a href={`${template.base}/blog/1`} class='text-lg'>📋 策划项目</a>
+					</li>
 				</ul>
 			</div>
 		</div>
