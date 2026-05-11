@@ -4,13 +4,13 @@ const {fullName, title, institute, profilePicture} = Astro.props
 ---
 <div class='flex-1'>
   <h1 class='text-4xl font-bold mb-2'>
-    Welcome! I'm <span style='color: #8B5E3C;'>{fullName}</span>
+    Hi there! 我是 <span style='color: #8B5E3C;'>{fullName}</span>
   </h1>
   <p class='text-xl mb-4'>{title}{institute ? ` at ${institute}` : ''}</p>
   <div class='flex flex-col gap-2 text-base'>
-    <span>✉️ ValarMorghulis1228@gmail.com</span>
-    <span>📍 Guangzhou, China</span>
-    <span>🌏 Mandarin · English · Thai (Basic)</span>
+    <span>✉️ 邮箱：ValarMorghulis1228@gmail.com</span>
+    <span>📍 现居地：广州</span>
+    <span>🌏 语言能力：普通话 · 粤语 · 泰语(B1) · 英语(Basic)</span>
   </div>
 </div>
 <div class='size-72 lg:block hidden'>
