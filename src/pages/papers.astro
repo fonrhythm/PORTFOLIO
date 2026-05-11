@@ -1,3 +1,4 @@
+---
 const xhsNotes = [
   {
     title: '泰国冷门女中音现场生唱',
@@ -30,7 +31,7 @@ const xhsNotes = [
     likes: '545',
     saves: '350',
     comments: '146',
-    shares: '',
+    shares: '0',
     link: 'http://xhslink.com/o/4CxP8dRamP7',
     highlight: '500+ 收藏',
     highlightStyle: 'badge-success',
@@ -58,5 +59,70 @@ const xhsNotes = [
     link: 'http://xhslink.com/o/7MRFSnY0aiI',
     highlight: '1w+ 浏览',
     highlightStyle: 'badge-info',
-  }
+  },
+{
+    title: '泰国电视节目播放规则调整',
+    desc: '更新｜总结：泰国全国进入...',
+    views: '34,846', likes: '452', saves: '86', comments: '205', shares: '',
+    link: 'http://xhslink.com/o/tfKgAYHQYS',
+    highlight: '1w+ 浏览',
+    highlightStyle: 'badge-info',
+  },
 ];
+---
+
+<div class="grid gap-4">
+  {
+    xhsNotes.map((note) => (
+      <div class="card bg-base-100 shadow-md border border-base-300">
+        <div class="card-body">
+          <div class="flex items-start justify-between gap-3">
+            <h2 class="card-title text-base">
+              {note.title}
+            </h2>
+
+            <div class={`badge ${note.highlightStyle}`}>
+              {note.highlight}
+            </div>
+          </div>
+
+          <p class="text-sm opacity-70">
+            {note.desc}
+          </p>
+
+          <div class="stats stats-horizontal shadow-sm border border-base-200 mt-3">
+            <div class="stat px-4 py-2">
+              <div class="stat-title text-xs">浏览</div>
+              <div class="stat-value text-base">{note.views}</div>
+            </div>
+
+            <div class="stat px-4 py-2">
+              <div class="stat-title text-xs">点赞</div>
+              <div class="stat-value text-base">{note.likes}</div>
+            </div>
+
+            <div class="stat px-4 py-2">
+              <div class="stat-title text-xs">收藏</div>
+              <div class="stat-value text-base">{note.saves}</div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 text-sm mt-4 opacity-70">
+            <span>💬 {note.comments}</span>
+            <span>↗ {note.shares}</span>
+          </div>
+
+          <div class="card-actions justify-end mt-4">
+            <a
+              href={note.link}
+              target="_blank"
+              class="btn btn-primary btn-sm"
+            >
+              查看笔记
+            </a>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</div>
