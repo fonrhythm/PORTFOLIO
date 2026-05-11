@@ -1,69 +1,111 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { profile } from "@/settings";
-import BetterIcon from "@/components/ui/BetterIcon.astro";
-import List from "@/components/ui/List.astro";
-import {RESEARCH_ICONS} from "@/data/researchIcons";
-
-const { research_areas } = profile;
 ---
-
-<Layout title="Research | Dr. Marie Curie">
+<Layout title="账号运营数据 | Fon">
   <div class="prose max-w-none">
-    <h1 class="text-3xl font-bold mb-8">Research Statement</h1>
 
-    <div class="mb-12">
-      <p class="text-lg mb-6">
-        My research focuses on groundbreaking investigations into radioactivity and the discovery of new radioactive elements. Through meticulous experimental techniques and innovative methodologies, I aim to advance our understanding of radioactive phenomena and their applications in both physics and chemistry.
-      </p>
-      <p class="text-lg mb-6">
-        This interdisciplinary approach has led to significant discoveries, including the isolation of polonium and radium, contributing to the foundation of modern nuclear physics and radiochemistry.
-      </p>
-    </div>
+    <h1 class="text-3xl font-bold mb-2">账号运营数据</h1>
+    <p class="text-base opacity-60 mb-10">Social Media Operations & Performance Data</p>
 
-    <h2 class="text-2xl font-bold mb-6">Research Areas</h2>
-    <div class="grid gap-8 mb-12">
-      {
-        research_areas.map((area) => (
-          <div class="flex gap-6 items-start">
-            <BetterIcon>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke-width="2"
-                class="size-6 stroke-accent"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d={RESEARCH_ICONS[area.field as keyof typeof RESEARCH_ICONS]?.path || RESEARCH_ICONS['computer-science'].path}
-                />
-              </svg>
-            </BetterIcon>
-            <div>
-              <h3 class="text-xl font-semibold mb-2">{area.title}</h3>
-              <p class="text-base">{area.description}</p>
-            </div>
+    <!-- 小红书总览 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-1 border-b pb-2">📱 小红书 · Xiaohongshu</h2>
+      <p class="text-sm opacity-50 mb-6">账号内容运营数据概览 · Account Performance Overview</p>
+
+      <div class="not-prose grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        {[
+          { number: '4.8w+', label: '笔记总赞评', sub: 'Total Likes & Comments' },
+          { number: '3篇', label: '浏览量 10w+', sub: 'Posts over 100K Views' },
+          { number: '12篇', label: '浏览量 1w+', sub: 'Posts over 10K Views' },
+          { number: '1篇', label: '赞藏 5000+', sub: 'Post with 5K+ Saves' },
+        ].map(item => (
+          <div class="border rounded-xl p-4 text-center">
+            <div class="text-2xl font-bold">{item.number}</div>
+            <div class="text-sm font-medium mt-1">{item.label}</div>
+            <div class="text-xs opacity-50 mt-0.5">{item.sub}</div>
           </div>
-        ))
-      }
-    </div>
+        ))}
+      </div>
 
-    <List listTitle="Current Projects" listItems={[
-      {
-        title: "Radioactivity Studies",
-        description: "Investigation of radioactive properties in uranium minerals and isolation of new radioactive elements."
-      },
-      {
-        title: "Measurement Techniques",
-        description: "Development of precise methods for measuring radioactive emissions and their properties."
-      }
-    ]} />
+      <!-- 浏览量分布 -->
+      <div class="not-prose mb-8">
+        <h3 class="text-base font-bold mb-4">浏览量分布 · Views Breakdown</h3>
+        <div class="space-y-3">
+          {[
+            { label: '10w+ 浏览', count: 3, total: 3, color: 'bg-accent' },
+            { label: '5w+ 浏览', count: 1, total: 3, color: 'bg-secondary' },
+            { label: '1w+ 浏览', count: 12, total: 12, color: 'bg-primary' },
+          ].map(row => (
+            <div class="flex items-center gap-4">
+              <span class="text-sm w-24 shrink-0">{row.label}</span>
+              <div class="flex-1 bg-base-200 rounded-full h-4">
+                <div
+                  class={`${row.color} h-4 rounded-full`}
+                  style={`width: ${Math.min((row.count / 12) * 100, 100)}%`}
+                ></div>
+              </div>
+              <span class="text-sm font-bold w-8 text-right">{row.count}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
-    <h2 class="text-2xl font-bold mb-6">Research Impact</h2>
-    <p class="text-lg mb-6">
-      My research has opened new frontiers in radioactivity studies, leading to practical applications in both scientific research and medical treatments. The discoveries have revolutionized our understanding of atomic structure and radioactive decay processes.
-    </p>
-  </div>
-</Layout>
+      <!-- 赞藏分布 -->
+      <div class="not-prose mb-8">
+        <h3 class="text-base font-bold mb-4">赞藏分布 · Likes & Saves Breakdown</h3>
+        <div class="space-y-3">
+          {[
+            { label: '5000+ 赞藏', count: 1 },
+            { label: '4000+ 赞藏', count: 1 },
+            { label: '1000+ 赞藏', count: 2 },
+            { label: '500+ 赞藏', count: 14 },
+          ].map(row => (
+            <div class="flex items-center gap-4">
+              <span class="text-sm w-24 shrink-0">{row.label}</span>
+              <div class="flex-1 bg-base-200 rounded-full h-4">
+                <div
+                  class="bg-primary h-4 rounded-full"
+                  style={`width: ${Math.min((row.count / 14) * 100, 100)}%`}
+                ></div>
+              </div>
+              <span class="text-sm font-bold w-8 text-right">{row.count}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="not-prose">
+        <a href="https://xhslink.com/m/1JIYxGNlQx" target="_blank" class="btn btn-outline btn-sm">
+          查看小红书主页 →
+        </a>
+      </div>
+    </section>
+
+    <!-- 公众号 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-1 border-b pb-2">📰 微信公众号 · WeChat Official Account</h2>
+      <p class="text-sm opacity-50 mb-6">内容创作与运营数据 · Content Creation & Operations</p>
+
+      <div class="not-prose grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+        {[
+          { number: '100+', label: '累计推文篇数', sub: 'Articles Published' },
+          { number: '20+', label: '视频内容条数', sub: 'Videos Produced' },
+          { number: '30%', label: '曝光量增长', sub: 'Exposure Growth' },
+        ].map(item => (
+          <div class="border rounded-xl p-4 text-center">
+            <div class="text-2xl font-bold">{item.number}</div>
+            <div class="text-sm font-medium mt-1">{item.label}</div>
+            <div class="text-xs opacity-50 mt-0.5">{item.sub}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 社群运营 -->
+    <section class="mb-12">
+      <h2 class="text-xl font-bold mb-1 border-b pb-2">👥 社群运营 · Community Management</h2>
+      <p class="text-sm opacity-50 mb-6">粉丝社群管理与用户增长数据</p>
+
+      <div class="not-prose grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[
+          { number: '5个', label: '核
