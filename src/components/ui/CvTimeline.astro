@@ -30,7 +30,7 @@ const { elements, colored } = Astro.props
                     <div class='text-xl font-black'>{isExperience(element) ? element.title : element.degree}</div>
                     <div class='text-base opacity-80 font-semibold'>{isExperience(element) ? element.company : element.school}</div>
                     <div class='text-sm opacity-60'>{element.location}</div>
-                    <div class='whitespace-pre-line text-base mt-2 tracking-[0.05em]'>{element.description}</div>
+                    <div class='whitespace-pre-line text-base mt-2 tracking-[0.025em]'>{element.description}</div>
 				</div>
 				<hr class:list={[{ 'bg-[#8B5E3C]': colored }]} />
 			</li>
