@@ -1,89 +1,99 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { experiences, education, skills, publications } from '../data/cv'
+import { experiences, education, skills } from '../data/cv'
 import CvTimeline from '@/components/ui/CvTimeline.astro'
-
-import type { Experience, Education, Publication } from '../types/cv'
+import type { Experience, Education } from '../types/cv'
 import List from '@/components/ui/List.astro'
-import PublicationsList from '@/components/ui/PublicationsList.astro'
 
 let orderedExperiences: Experience[] = []
 let orderedEducations: Education[] = []
-let orderedPublications: Publication[] = []
 
 const orderElement = <T extends { time: string }>(a: T, b: T) => {
   const presentValues = ['present', 'now', 'current', 'today']
   if (
-			presentValues.includes(
-				(a['time'] as string)?.split(' - ')[1]?.toLowerCase()
-			)
-		) {
-			// If the date is 'present', it should be the first element
-			return -1
-		}
-		const dateA = new Date((a['time'] as string)?.split(' - ')[1])
-		const dateB = new Date((b['time'] as string)?.split(' - ')[1])
-		return dateB.getTime() - dateA.getTime()
+    presentValues.includes(
+      (a['time'] as string)?.split(' - ')[1]?.toLowerCase()
+    )
+  ) {
+    return -1
+  }
+  const dateA = new Date((a['time'] as string)?.split(' - ')[1])
+  const dateB = new Date((b['time'] as string)?.split(' - ')[1])
+  return dateB.getTime() - dateA.getTime()
 }
 
 if (experiences.length > 0) {
-	orderedExperiences = experiences.sort((a, b) => {
-		return orderElement(a, b)
-	})
+  orderedExperiences = experiences.sort((a, b) => orderElement(a, b))
 }
-
 if (education.length > 0) {
-	orderedEducations = education.sort((a, b) => {
-		return orderElement(a, b)
-	})
-}
-
-if (publications.length > 0) {
-	orderedPublications = publications.sort((a, b) => {
-		return orderElement(a, b)
-	})
+  orderedEducations = education.sort((a, b) => orderElement(a, b))
 }
 ---
 
 <Layout>
-	{
-		orderedEducations.length > 0 && (
-			<section class='mb-12'>
-				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
-					Education
-				</h2>
-				<CvTimeline elements={orderedEducations} colored={true} />
-			</section>
-		)
-	}
 
-	{
-		orderedExperiences.length > 0 && (
-			<section class='mb-12'>
-				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
-					Experiences
-				</h2>
-				<CvTimeline elements={orderedExperiences} colored={true} />
-			</section>
-		)
-	}
+  <!-- 页头 -->
+  <section class='mb-10 border-b pb-8'>
+    <h1 class='text-3xl font-bold'>Fon</h1>
+    <p class='text-lg opacity-70 mt-1'>Entertainment & Content Professional · 复合型文娱行业从业者</p>
+    <div class='flex flex-wrap gap-4 mt-3 text-sm opacity-60'>
+      <span>📧 ValarMorghulis1228@gmail.com</span>
+      <span>📍 Guangzhou, China</span>
+      <span>🌏 Mandarin · English · Thai (Basic)</span>
+    </div>
+  </section>
 
-	{
-		orderedPublications.length > 0 && (
-			<section class='mb-12'>
-				<h2 class='text-2xl font-bold mb-6 border-b pb-2'>
-					Last publications
-				</h2>
-				<PublicationsList elements={orderedPublications}/>
-			</section>
-		)
-	}
+  <!-- 求职意向 -->
+  <section class='mb-10'>
+    <h2 class='text-xl font-bold mb-3 border-b pb-2'>Target Roles / 求职意向</h2>
+    <div class='flex flex-wrap gap-2'>
+      {['小红书运营', '公众号运营', '文案 / 资深文案', '账号运营', '活动策划', '项目执行'].map(role => (
+        <span class='badge badge-outline text-sm px-3 py-1'>{role}</span>
+      ))}
+    </div>
+  </section>
 
-	{
-		skills.length > 0 && (
-			<section class='mb-12'>
-				<List listTitle='Skills' listItems={skills}/>
-			</section>
-		)
-	}
+  <!-- 工作经历 -->
+  {orderedExperiences.length > 0 && (
+    <section class='mb-10'>
+      <h2 class='text-xl font-bold mb-4 border-b pb-2'>Work Experience / 工作经历</h2>
+      <CvTimeline elements={orderedExperiences} colored={true} />
+    </section>
+  )}
+
+  <!-- 教育背景 -->
+  {orderedEducations.length > 0 && (
+    <section class='mb-10'>
+      <h2 class='text-xl font-bold mb-4 border-b pb-2'>Education / 教育背景</h2>
+      <CvTimeline elements={orderedEducations} colored={true} />
+    </section>
+  )}
+
+  <!-- 技能 -->
+  {skills.length > 0 && (
+    <section class='mb-10'>
+      <h2 class='text-xl font-bold mb-4 border-b pb-2'>Skills / 技能</h2>
+      <List listTitle='' listItems={skills} />
+    </section>
+  )}
+
+  <!-- 数据亮点 -->
+  <section class='mb-10'>
+    <h2 class='text-xl font-bold mb-4 border-b pb-2'>Key Metrics / 数据亮点</h2>
+    <div class='grid grid-cols-2 md:grid-cols-4 gap-4'>
+      {[
+        { number: '100+', label: '新媒体图文', sub: 'Published Articles' },
+        { number: '4.8w+', label: '小红书赞评', sub: 'Xiaohongshu Engagements' },
+        { number: '10w+', label: '单篇最高浏览', sub: 'Peak Post Views' },
+        { number: '10+', label: '大型演出执行', sub: 'Live Events Produced' },
+      ].map(item => (
+        <div class='border rounded-xl p-4 text-center'>
+          <div class='text-2xl font-bold'>{item.number}</div>
+          <div class='text-sm font-medium mt-1'>{item.label}</div>
+          <div class='text-xs opacity-50 mt-0.5'>{item.sub}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
 </Layout>
