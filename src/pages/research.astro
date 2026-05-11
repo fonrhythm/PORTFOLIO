@@ -13,40 +13,53 @@ import Layout from "@/layouts/Layout.astro";
       <p class="text-sm opacity-50 mb-6">账号内容运营数据概览 · Account Performance Overview</p>
 
       <div class="not-prose grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        {[
-          { number: '4.8w+', label: '笔记总赞评', sub: 'Total Likes & Comments' },
-          { number: '3篇', label: '浏览量 10w+', sub: 'Posts over 100K Views' },
-          { number: '12篇', label: '浏览量 1w+', sub: 'Posts over 10K Views' },
-          { number: '1篇', label: '赞藏 5000+', sub: 'Post with 5K+ Saves' },
-        ].map(item => (
-          <div class="border rounded-xl p-4 text-center">
-            <div class="text-2xl font-bold">{item.number}</div>
-            <div class="text-sm font-medium mt-1">{item.label}</div>
-            <div class="text-xs opacity-50 mt-0.5">{item.sub}</div>
-          </div>
-        ))}
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">4.8w+</div>
+          <div class="text-sm font-medium mt-1">笔记总赞评</div>
+          <div class="text-xs opacity-50 mt-0.5">Total Likes & Comments</div>
+        </div>
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">3篇</div>
+          <div class="text-sm font-medium mt-1">浏览量 10w+</div>
+          <div class="text-xs opacity-50 mt-0.5">Posts over 100K Views</div>
+        </div>
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">12篇</div>
+          <div class="text-sm font-medium mt-1">浏览量 1w+</div>
+          <div class="text-xs opacity-50 mt-0.5">Posts over 10K Views</div>
+        </div>
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">1篇</div>
+          <div class="text-sm font-medium mt-1">赞藏 5000+</div>
+          <div class="text-xs opacity-50 mt-0.5">Post with 5K+ Saves</div>
+        </div>
       </div>
 
       <!-- 浏览量分布 -->
       <div class="not-prose mb-8">
         <h3 class="text-base font-bold mb-4">浏览量分布 · Views Breakdown</h3>
         <div class="space-y-3">
-          {[
-            { label: '10w+ 浏览', count: 3, total: 3, color: 'bg-accent' },
-            { label: '5w+ 浏览', count: 1, total: 3, color: 'bg-secondary' },
-            { label: '1w+ 浏览', count: 12, total: 12, color: 'bg-primary' },
-          ].map(row => (
-            <div class="flex items-center gap-4">
-              <span class="text-sm w-24 shrink-0">{row.label}</span>
-              <div class="flex-1 bg-base-200 rounded-full h-4">
-                <div
-                  class={`${row.color} h-4 rounded-full`}
-                  style={`width: ${Math.min((row.count / 12) * 100, 100)}%`}
-                ></div>
-              </div>
-              <span class="text-sm font-bold w-8 text-right">{row.count}</span>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-24 shrink-0">10w+ 浏览</span>
+            <div class="flex-1 bg-base-200 rounded-full h-4">
+              <div class="bg-accent h-4 rounded-full" style="width: 25%"></div>
             </div>
-          ))}
+            <span class="text-sm font-bold w-8 text-right">3</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-24 shrink-0">5w+ 浏览</span>
+            <div class="flex-1 bg-base-200 rounded-full h-4">
+              <div class="bg-secondary h-4 rounded-full" style="width: 8%"></div>
+            </div>
+            <span class="text-sm font-bold w-8 text-right">1</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-24 shrink-0">1w+ 浏览</span>
+            <div class="flex-1 bg-base-200 rounded-full h-4">
+              <div class="bg-primary h-4 rounded-full" style="width: 100%"></div>
+            </div>
+            <span class="text-sm font-bold w-8 text-right">12</span>
+          </div>
         </div>
       </div>
 
@@ -54,23 +67,34 @@ import Layout from "@/layouts/Layout.astro";
       <div class="not-prose mb-8">
         <h3 class="text-base font-bold mb-4">赞藏分布 · Likes & Saves Breakdown</h3>
         <div class="space-y-3">
-          {[
-            { label: '5000+ 赞藏', count: 1 },
-            { label: '4000+ 赞藏', count: 1 },
-            { label: '1000+ 赞藏', count: 2 },
-            { label: '500+ 赞藏', count: 14 },
-          ].map(row => (
-            <div class="flex items-center gap-4">
-              <span class="text-sm w-24 shrink-0">{row.label}</span>
-              <div class="flex-1 bg-base-200 rounded-full h-4">
-                <div
-                  class="bg-primary h-4 rounded-full"
-                  style={`width: ${Math.min((row.count / 14) * 100, 100)}%`}
-                ></div>
-              </div>
-              <span class="text-sm font-bold w-8 text-right">{row.count}</span>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-24 shrink-0">5000+ 赞藏</span>
+            <div class="flex-1 bg-base-200 rounded-full h-4">
+              <div class="bg-primary h-4 rounded-full" style="width: 7%"></div>
             </div>
-          ))}
+            <span class="text-sm font-bold w-8 text-right">1</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-24 shrink-0">4000+ 赞藏</span>
+            <div class="flex-1 bg-base-200 rounded-full h-4">
+              <div class="bg-primary h-4 rounded-full" style="width: 7%"></div>
+            </div>
+            <span class="text-sm font-bold w-8 text-right">1</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-24 shrink-0">1000+ 赞藏</span>
+            <div class="flex-1 bg-base-200 rounded-full h-4">
+              <div class="bg-primary h-4 rounded-full" style="width: 14%"></div>
+            </div>
+            <span class="text-sm font-bold w-8 text-right">2</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-sm w-24 shrink-0">500+ 赞藏</span>
+            <div class="flex-1 bg-base-200 rounded-full h-4">
+              <div class="bg-primary h-4 rounded-full" style="width: 100%"></div>
+            </div>
+            <span class="text-sm font-bold w-8 text-right">14</span>
+          </div>
         </div>
       </div>
 
@@ -85,19 +109,22 @@ import Layout from "@/layouts/Layout.astro";
     <section class="mb-12">
       <h2 class="text-xl font-bold mb-1 border-b pb-2">📰 微信公众号 · WeChat Official Account</h2>
       <p class="text-sm opacity-50 mb-6">内容创作与运营数据 · Content Creation & Operations</p>
-
       <div class="not-prose grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-        {[
-          { number: '100+', label: '累计推文篇数', sub: 'Articles Published' },
-          { number: '20+', label: '视频内容条数', sub: 'Videos Produced' },
-          { number: '30%', label: '曝光量增长', sub: 'Exposure Growth' },
-        ].map(item => (
-          <div class="border rounded-xl p-4 text-center">
-            <div class="text-2xl font-bold">{item.number}</div>
-            <div class="text-sm font-medium mt-1">{item.label}</div>
-            <div class="text-xs opacity-50 mt-0.5">{item.sub}</div>
-          </div>
-        ))}
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">100+</div>
+          <div class="text-sm font-medium mt-1">累计推文篇数</div>
+          <div class="text-xs opacity-50 mt-0.5">Articles Published</div>
+        </div>
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">20+</div>
+          <div class="text-sm font-medium mt-1">视频内容条数</div>
+          <div class="text-xs opacity-50 mt-0.5">Videos Produced</div>
+        </div>
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">30%</div>
+          <div class="text-sm font-medium mt-1">曝光量增长</div>
+          <div class="text-xs opacity-50 mt-0.5">Exposure Growth</div>
+        </div>
       </div>
     </section>
 
@@ -105,7 +132,29 @@ import Layout from "@/layouts/Layout.astro";
     <section class="mb-12">
       <h2 class="text-xl font-bold mb-1 border-b pb-2">👥 社群运营 · Community Management</h2>
       <p class="text-sm opacity-50 mb-6">粉丝社群管理与用户增长数据</p>
-
       <div class="not-prose grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          { number: '5个', label: '核
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">5个</div>
+          <div class="text-sm font-medium mt-1">核心粉丝社群</div>
+          <div class="text-xs opacity-50 mt-0.5">Fan Communities</div>
+        </div>
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">2000+</div>
+          <div class="text-sm font-medium mt-1">社群总人数</div>
+          <div class="text-xs opacity-50 mt-0.5">Total Members</div>
+        </div>
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">55%</div>
+          <div class="text-sm font-medium mt-1">社群活跃度提升</div>
+          <div class="text-xs opacity-50 mt-0.5">Engagement Increase</div>
+        </div>
+        <div class="border rounded-xl p-4 text-center">
+          <div class="text-2xl font-bold">12%</div>
+          <div class="text-sm font-medium mt-1">活动转化率</div>
+          <div class="text-xs opacity-50 mt-0.5">Event Conversion Rate</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</Layout>
