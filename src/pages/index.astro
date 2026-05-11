@@ -1,19 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
-
 import { profile } from '@/settings'
-import { publications } from '@/data/cv'
 import ProfilePictures from '@/assets/profile_pictures.jpg'
 import Hero from '@/components/ui/Hero.astro'
 import Grid from '@/components/ui/Grid.astro'
-import ArticleList from '@/components/ui/ArticleList.astro'
 
 const { fullName, title, institute, research_areas } = profile
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
-
 <Layout>
 	<!-- Hero Section -->
 	<section class='flex items-center gap-12 border-b pb-12'>
@@ -25,13 +18,31 @@ const { fullName, title, institute, research_areas } = profile
 		/>
 	</section>
 
-	<!-- Research Areas -->
+	<!-- About Me -->
 	<section class='py-12 border-b'>
-		<Grid gridTitle='Research Areas' gridItems={research_areas} />
+		<h2 class='text-2xl font-bold mb-6'>About Me / 关于我</h2>
+		<div class='prose max-w-none space-y-4'>
+			<p>
+				Hi, I'm <strong>Fon</strong> — a multidisciplinary entertainment industry professional with <strong>3+ years of cross-functional experience</strong> spanning content operations, brand marketing, event production, and new media creation.
+			</p>
+			<p>
+				大家好，我是 <strong>Fon</strong>，一名复合型文娱行业从业者，拥有超过 <strong>3 年跨领域从业经验</strong>，涵盖新媒体内容运营、品牌管理、活动策划与演出执行。
+			</p>
+			<ul class='list-disc list-inside space-y-2 text-base'>
+				<li>📝 独立撰写并发布新媒体图文内容 <strong>100+</strong> 篇，熟悉从策划、编辑、排版到多平台发布的完整流程</li>
+				<li>🎤 参与推动 <strong>10+ 场超 500 人</strong>线下演出落地，负责舞台统筹、艺人协调、控台对接</li>
+				<li>📱 小红书账号运营，笔记总赞评 <strong>4.8w+</strong>，多篇笔记浏览量突破 <strong>10w</strong></li>
+				<li>🎨 掌握 Premiere / CapCut / PS，协助完成视频物料 <strong>200+</strong> 条、海报设计 <strong>30+ 套</strong></li>
+				<li>🌏 具备基础泰语沟通能力，可支持中泰文娱合作项目</li>
+			</ul>
+			<p class='text-base opacity-70'>
+				Currently open to roles in: 小红书运营 · 公众号运营 · 文案 · 账号运营 · 活动策划 · 项目执行
+			</p>
+		</div>
 	</section>
 
-	<!-- Recent Publications -->
-	<section class='py-12 border-t'>
-		<ArticleList listTitle='Recent Publications' listItems={publications} />
+	<!-- Core Competencies -->
+	<section class='py-12'>
+		<Grid gridTitle='Core Competencies / 核心能力' gridItems={research_areas} />
 	</section>
 </Layout>
