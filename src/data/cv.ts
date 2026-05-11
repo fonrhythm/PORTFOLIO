@@ -1,27 +1,45 @@
 export const experiences = [
 	{
-		company: 'Guangzhou XX Cultural Development Co., Ltd.',
-		time: '2021.12 – 2025.03',
-		title: 'New Media Operations Intern → Brand & Marketing Specialist',
-		location: 'Guangzhou, China',
-		description: `Content Creation & Operations: Produced 100+ social media posts and 20+ videos for brand channels. Drove a 30% increase in exposure by optimizing distribution channels across platforms.
-
-Event Production & Execution: Co-produced 3 large-scale events (1,000+ attendees each) and 10+ shows with 500+ attendees. Managed stage coordination, artist liaison, and console operations with zero major incidents.
-
-Community Management: Operated 5 core fan communities (2,000+ members total), achieving a 55% increase in weekly engagement and a 12% event conversion rate.
-
-Brand Collaboration: Assisted in developing brand marketing strategies and executing external partnership campaigns across online and offline channels.
-
-Artist & Guest Services: Coordinated logistics for 30+ artists and guests including transport and accommodation, achieving a 95% satisfaction rate.
-
-Venue Coordination: Liaised with key venues including Guangzhou Opera House and Xinghai Concert Hall; improved technical coordination efficiency by 40%.`,
+		company: '**广州乐都文化发展有限公司**',
+		time: '2022.06 – 2025.03',
+        location: '广州',
+		title: '**品牌与市场运营专员**',
+		description: `· 品牌合作与推广：协助制定品牌营销策略，推动外部合作项目落地。
+· 内容策划与执行：负责撰写推广文案、活动海报等宣传素材，覆盖线上线下渠道。
+· 跨部门协作：统筹市场部与执行团队的需求对接，优化流程效率，缩短项目筹备周期20%。
+`,
 	},
 	{
-		company: 'XX Theater',
+		title: '**活动策划与现场执行**',
+		description: `· 活动全流程管理：负责5+场演出活动的策划与执行，协调舞台搭建、设备调试，确保活动按时推进。
+· 舞监助理：配合导演组完成灯光、音响调度，管理控台流程，保障演出顺利进行，0重大失误。`,
+	},
+	{
+		title: '**艺人/嘉宾 服务与管理**',
+		description: `· 活动全流程管理：负责5+场演出活动的策划与执行，协调舞台搭建、设备调试，确保活动按时推进。
+· 舞监助理：配合导演组完成灯光、音响调度，管理控台流程，保障演出顺利进行，0重大失误。`,
+	},
+	{
+		title: '**场地对接**',
+		description: `· 场地协调：负责与广州大剧院、星海音乐厅等多个重点场馆的对接，统筹舞台搭建、安全报批流程等，将技术对接效率提升40%。
+· 文件管理：整理演出合同、报批文件等资料，确保信息准确，项目推进效率提升30%。`,
+	},
+	{
+		company: '**广州乐都文化发展有限公司**',
+		time: '2021.12 – 2022.06',
+        location: '广州',
+		title: '**新媒体运营实习生**',
+		description: `· 内容创作与运营：负责撰写品牌相关社交媒体推文与视频内容创作，累计产出推文100+篇、视频20+条。
+· 宣传策略与项目执行：参与制定季度推广计划，协助落地3场大型演出项目（单场参与人数1000+），10+场超500人线下演出，优化投放渠道，推动曝光量增长30%。
+· 社群管理与用户增长：管理社群互动，运营5个核心粉丝社群（总人数2,000+），促进每周互动活动，使社群活跃度提升55%，活动转化率达12%，提升顾客认同感与黏性，刺激提升活动参与度。`,
+	},
+	{
+		company: '郭兰英剧院',
 		time: '2019.10 – 2020.12',
-		title: 'Audio Assistant',
+		title: '音响助理',
 		location: 'Guangzhou, China',
-		description: `Assisted lead sound engineers in equipment setup and live show mixing. Studied console operation principles and gained foundational knowledge of lighting systems including the Tiger Touch lighting console.`,
+		description: `· 音响调控支持：协助现场调音师完成演出音响设备调试，学习控台调音原理与操作。
+· 灯光系统操作：对灯光设备进行了基本了解和基础学习(老虎 Tiger Touch 灯光控台)。`,
 	},
 ];
 
@@ -37,24 +55,26 @@ export const education = [
 
 export const skills = [
 	{
-		title: 'Content & Copywriting',
-		description: 'Social media copywriting, long-form articles, video scripts, poster copy; 100+ published pieces across WeChat and Xiaohongshu.',
+		title: '内容创作',
+		description: '擅长社交媒体推文撰写（100+篇实战经验）',
 	},
 	{
-		title: 'Social Media Operations',
-		description: 'Xiaohongshu account management; 48,000+ total likes & comments; 3 posts with 100,000+ views. Full workflow from planning to multi-platform publishing.',
+		title: '账号运营',
+		description: '小红书获赞48,000+赞评; 有3条比较超过10,000,0阅读量；
+			常年有使用Instagram、X、Facebook、Youtube的习惯；
+			能够完成从账号规划到多平台发布的完整工作流程。',
 	},
 	{
-		title: 'Event Production',
-		description: 'End-to-end event management: stage setup, equipment testing, artist coordination, venue liaison. 10+ shows with 500+ attendees.',
+		title: '软件使用',
+		description: '短视频剪辑（熟悉Premiere/CapCut）；掌握Photoshop基础操作（海报设计、图片处理）',
 	},
 	{
-		title: 'Video & Visual Editing',
-		description: 'Premiere Pro, CapCut, Photoshop. Produced 200+ video assets and 30+ poster design sets.',
+		title: '语言能力',
+		description: '普通话、粤语、泰语（B1）、英语',
 	},
 	{
-		title: 'Languages',
-		description: 'Mandarin Chinese (native), English (professional), Thai (basic conversational — supports Sino-Thai entertainment collaborations).',
+		title: '现场技术',
+		description: '熟悉音控灯控常用语，能有效提升现场执行与现场沟通效率。',
 	},
 ];
 
