@@ -521,58 +521,7 @@ const xhsNotes = [
       </div>
 
     </section>
-   <!-- 行业洞察 -->
-      <h3 class="text-base font-semibold mb-1">行业洞察 · Industry Insight</h3>
-      <p class="text-sm opacity-50 mb-4">泰国音乐市场动态分析与行业观察</p>
-      <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-        {xhsInsight.map(note => (
-          <div class="card bg-base-200 hover:shadow-md transition-shadow">
-            <div class="card-body">
-              <h3 class="font-bold text-base">{note.title}</h3>
-              <p class="text-sm opacity-60 mt-1">{note.desc}</p>
-              <div class="card-actions justify-end mt-3">
-                <a href={note.link} target="_blank" class="btn btn-sm" style="background-color: #8B5E3C; color: white; border: none;">查看笔记 →</a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- 长图文 -->
-      <h3 class="text-base font-semibold mb-1">长图文呈现 · Long-form Content</h3>
-      <p class="text-sm opacity-50 mb-4">深度内容创作，议题分析与考据研究</p>
-      <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-        {xhsLongform.map(note => (
-          <div class="card bg-base-200 hover:shadow-md transition-shadow">
-            <div class="card-body">
-              <h3 class="font-bold text-base">{note.title}</h3>
-              <p class="text-sm opacity-60 mt-1">{note.desc}</p>
-              <div class="card-actions justify-end mt-3">
-                <a href={note.link} target="_blank" class="btn btn-sm" style="background-color: #8B5E3C; color: white; border: none;">查看笔记 →</a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- 内容转化 -->
-      <h3 class="text-base font-semibold mb-1">内容转化 · Content Conversion</h3>
-      <p class="text-sm opacity-50 mb-4">现场记录与生活内容引发高互动与传播</p>
-      <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4">
-        {xhsConvert.map(note => (
-          <div class="card bg-base-200 hover:shadow-md transition-shadow">
-            <div class="card-body">
-              <h3 class="font-bold text-base">{note.title}</h3>
-              <p class="text-sm opacity-60 mt-1">{note.desc}</p>
-              <div class="card-actions justify-end mt-3">
-                <a href={note.link} target="_blank" class="btn btn-sm" style="background-color: #8B5E3C; color: white; border: none;">查看笔记 →</a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-
+ 
   </div>
 
 </Layout>
