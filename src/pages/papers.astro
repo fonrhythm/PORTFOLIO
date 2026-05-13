@@ -1,73 +1,8 @@
----
-import Layout from "@/layouts/Layout.astro";
-import { publications } from "@/data/cv";
-
-const brandPieces = publications.filter(p =>
-  ['上海乐器展 | Shanghai Music Expo', '世界钢琴日 | World Piano Day', '年度总结 | Year in Review'].includes(p.title)
-)
-
-const contestPieces = publications.filter(p =>
-  ['大师班 | Masterclass', '决赛 | Final Round', '总决赛一览 | Grand Final Overview'].includes(p.title)
-)
-
-const insightSections = [
-  {
-    category: "行业动态 · Industry Trends",
-    items: [
-      {
-        title: "GMM Music X 腾讯音乐 (TME) 战略合作",
-        desc: "深度分析泰国音乐巨头与中国流媒体平台的强强联手...",
-        link: "https://www.xiaohongshu.com/discovery/item/69e887de000000001b023178",
-        badge: "战略合作"
-      },
-      {
-        title: "环球音乐注资泰国独立厂牌",
-        desc: "国际资本入局，泰国独立音乐生态位正面临重塑与震荡...",
-        link: "https://www.xiaohongshu.com/discovery/item/69bef465000000002301797b",
-        badge: "资本动向"
-      },
-      {
-        title: "泰国电视节目播放规则调整",
-        desc: "总结：泰国全国进入特殊时期后的广播电视播放要求变动...",
-        link: "http://xhslink.com/o/tfKgAYHQYS",
-        badge: "政策解读"
-      }
-    ]
-  },
-  {
-    category: "深度解析 · Deep Dive",
-    items: [
-      {
-        title: "泰剧洪沙瓦底抄袭争议深度复盘",
-        desc: "不止于抄袭：从版权纠纷透视泰国历史剧的文化出海困局...",
-        link: "https://www.xiaohongshu.com/discovery/item/69f72c6e000000001f003dcf",
-        badge: "长图文呈现"
-      },
-      {
-        title: "泰剧正片外的时代印记刻画",
-        desc: "拆解剧集细节中隐藏的历史互文与社会文化符号...",
-        link: "https://www.xiaohongshu.com/discovery/item/68cb906d0000000011015295",
-        badge: "文化观察"
-      },
-      {
-        title: "大城导游竟是冷门女歌手",
-        desc: "内容转化案例：从旅行偶遇到艺人深度挖掘的情感共鸣...",
-        link: "https://www.xiaohongshu.com/discovery/item/69f66beb000000001a02d5c5",
-        badge: "内容转化"
-      }
-    ]
-  }
-]
-
 const xhsNotes = [
   {
     title: '泰国冷门女中音现场生唱',
     desc: '质感这一块 磁性、朦胧，薄薄...',
-    views: '44,553',
-    likes: '5,920',
-    saves: '1,552',
-    comments: '78',
-    shares: '294',
+    views: '44,553', likes: '5,920', saves: '1,552', comments: '78', shares: '294',
     link: 'http://xhslink.com/o/50OZUftVLT3',
     highlight: '5000+ 赞藏',
     highlightStyle: 'badge-warning',
@@ -75,11 +10,7 @@ const xhsNotes = [
   {
     title: '靓女 你好 结芬',
     desc: '恩真的好美 @earn.muien 2025.08...',
-    views: '110,400',
-    likes: '4,892',
-    saves: '982',
-    comments: '64',
-    shares: '216',
+    views: '110,400', likes: '4,892', saves: '982', comments: '64', shares: '216',
     link: 'http://xhslink.com/o/6qe78jOVsmB',
     highlight: '10w+ 浏览',
     highlightStyle: 'badge-warning',
@@ -87,11 +18,7 @@ const xhsNotes = [
   {
     title: '全网第一批拿到泰国入境小礼物',
     desc: '前几天一直刷到...',
-    views: '28,685',
-    likes: '545',
-    saves: '350',
-    comments: '146',
-    shares: '',
+    views: '28,685', likes: '545', saves: '350', comments: '146', shares: '',
     link: 'http://xhslink.com/o/4CxP8dRamP7',
     highlight: '500+ 收藏',
     highlightStyle: 'badge-success',
@@ -99,11 +26,7 @@ const xhsNotes = [
   {
     title: '歌迷没握到手 被叫回来重新握',
     desc: '被Nont迷晕了 眼神是...',
-    views: '12,463',
-    likes: '816',
-    saves: '45',
-    comments: '7',
-    shares: '140',
+    views: '12,463', likes: '816', saves: '45', comments: '7', shares: '140',
     link: 'http://xhslink.com/o/9hml6gsJ5C0',
     highlight: '1w+ 浏览',
     highlightStyle: 'badge-info',
@@ -111,204 +34,48 @@ const xhsNotes = [
   {
     title: '广州看原唱演出',
     desc: '你怎么知道我有机会在广州看原唱演出了...',
-    views: '10,881',
-    likes: '1,172',
-    saves: '155',
-    comments: '35',
-    shares: '54',
+    views: '10,881', likes: '1,172', saves: '155', comments: '35', shares: '54',
     link: 'http://xhslink.com/o/7MRFSnY0aiI',
     highlight: '1w+ 浏览',
     highlightStyle: 'badge-info',
   },
+]
+
+const xhsInsight = [
   {
-    title: '泰国电视节目播放规则调整',
-    desc: '更新｜总结：泰国全国进入...',
-    views: '34,846',
-    likes: '452',
-    saves: '86',
-    comments: '205',
-    shares: '',
-    link: 'http://xhslink.com/o/tfKgAYHQYS',
-    highlight: '1w+ 浏览',
-    highlightStyle: 'badge-info',
+    title: '新厂牌来袭 GMM Music X 腾讯音乐 (TME)',
+    desc: '行业动态解读，泰国音乐市场新动向。',
+    link: 'https://www.xiaohongshu.com/discovery/item/69e887de000000001b023178?source=webshare&xhsshare=pc_web&xsec_token=ABZVxYWa3N0uZsY62Y4ADDGHmJ_FcXWb2uqGAegUopwAE=&xsec_source=pc_share',
+  },
+  {
+    title: '泰乐圈再震 环球音乐注资泰国独立厂牌',
+    desc: '行业动态解读，资本进入泰国独立音乐市场分析。',
+    link: 'https://www.xiaohongshu.com/discovery/item/69bef465000000002301797b?source=webshare&xhsshare=pc_web&xsec_token=ABNFYD_-n_C_xxKdZ06Vo5VWcbxdwcu_xaf-n_V_5daoc=&xsec_source=pc_share',
   },
 ]
----
 
-<Layout title="作品集 | Fon">
-  <div class="prose max-w-none">
+const xhsLongform = [
+  {
+    title: '泰剧洪沙瓦底抄袭？事情可能远不及如此',
+    desc: '深度长图文，抽丝剥茧分析泰剧争议事件。',
+    link: 'https://www.xiaohongshu.com/discovery/item/69f72c6e000000001f003dcf?source=webshare&xhsshare=pc_web&xsec_token=ABxc04vheoexgkKIy3sCXN9mUJDdPt2o3hDzhMufy6WKI=&xsec_source=pc_share',
+  },
+  {
+    title: '正片里未详细描述 但却处处刻着的时代印记',
+    desc: '深度长图文，挖掘影视作品中的历史细节与时代背景。',
+    link: 'https://www.xiaohongshu.com/discovery/item/68cb906d0000000011015295?source=webshare&xhsshare=pc_web&xsec_token=AB2pZjaR6woSu0YK26y1J9PyuwFoIiUJzdn4ozTJPFJ8o=&xsec_source=pc_share',
+  },
+]
 
-    <h1 class="text-3xl font-bold mb-2">作品集 / Portfolio</h1>
-    <p class="text-base opacity-60 mb-10">
-      公众号文案 · 小红书内容运营代表作
-    </p>
-
-    <!-- 公众号文案 -->
-    <section class="mb-14">
-      <h2 class="text-xl font-bold mb-1 border-b pb-2">
-        公众号文案 · WeChat Copywriting
-      </h2>
-
-      <h3 class="text-base font-semibold mt-6 mb-1">
-        品牌内容 · Brand Content
-      </h3>
-
-      <p class="text-sm opacity-50 mb-4">
-        节日借势、展会推广、年度回顾等品牌向图文内容
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose mb-8">
-        {brandPieces.map(piece => (
-          <div class="card bg-base-200 hover:shadow-md transition-shadow">
-            <div class="card-body">
-              <h3 class="font-bold text-base leading-snug">
-                {piece.title}
-              </h3>
-
-              <p class="text-sm opacity-60 mt-1">
-                {piece.abstract}
-              </p>
-
-              <div class="card-actions justify-end mt-4">
-                <a
-                  href={piece.link}
-                  target="_blank"
-                  class="btn btn-sm"
-                  style="background-color: #8B5E3C; color: white; border: none;"
-                >
-                  阅读原文 →
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <h3 class="text-base font-semibold mt-6 mb-1">
-        赛事报道 · Competition Coverage
-      </h3>
-
-      <p class="text-sm opacity-50 mb-4">
-        大师班、决赛、总决赛等赛事全程跟踪报道
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 not-prose">
-        {contestPieces.map(piece => (
-          <div class="card bg-base-200 hover:shadow-md transition-shadow">
-            <div class="card-body">
-              <h3 class="font-bold text-base leading-snug">
-                {piece.title}
-              </h3>
-
-              <p class="text-sm opacity-60 mt-1">
-                {piece.abstract}
-              </p>
-
-              <div class="card-actions justify-end mt-4">
-                <a
-                  href={piece.link}
-                  target="_blank"
-                  class="btn btn-sm"
-                  style="background-color: #8B5E3C; color: white; border: none;"
-                >
-                  阅读原文 →
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- 小红书运营 -->
-    <section class="mb-14">
-      <h2 class="text-xl font-bold mb-1 border-b pb-2">
-        小红书运营 · Xiaohongshu
-      </h2>
-
-      <!-- 数据概览 -->
-      <div class="not-prose flex flex-wrap items-center gap-4 mt-6 mb-8 p-4 bg-base-200 rounded-xl">
-        <div class="flex flex-wrap gap-3 flex-1">
-          {[
-            { number: '4.8w+', label: '总赞评' },
-            { number: '3篇', label: '浏览 10w+' },
-            { number: '12篇', label: '浏览 1w+' },
-            { number: '1篇', label: '赞藏 5000+' },
-          ].map(item => (
-            <div class="text-center px-4 py-2 border rounded-lg bg-base-100">
-              <div class="text-xl font-bold">
-                {item.number}
-              </div>
-
-              <div class="text-xs opacity-60">
-                {item.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <a
-          href="https://xhslink.com/m/1JIYxGNlQx"
-          target="_blank"
-          class="btn btn-sm"
-          style="background-color: #8B5E3C; color: white; border: none;"
-        >
-          查看主页 →
-        </a>
-      </div>
-
-      <!-- 代表笔记 -->
-      <h3 class="text-base font-semibold mb-1">
-        代表笔记 · Top Posts
-      </h3>
-
-      <p class="text-sm opacity-50 mb-4">
-        数据表现突出的内容样本
-      </p>
-
-      <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4">
-        {xhsNotes.map(note => (
-          <div class="card bg-base-200 hover:shadow-md transition-shadow">
-            <div class="card-body">
-
-              <div class="flex items-start justify-between gap-2">
-                <h3 class="font-bold text-base">
-                  {note.title}
-                </h3>
-
-                <span class={`badge ${note.highlightStyle} badge-sm whitespace-nowrap`}>
-                  {note.highlight}
-                </span>
-              </div>
-
-              <p class="text-sm opacity-60 mt-1">
-                {note.desc}
-              </p>
-
-              <div class="flex flex-wrap gap-3 mt-3 text-xs opacity-70">
-                <span>👁 {note.views}</span>
-                <span>❤️ {note.likes}</span>
-                <span>⭐ {note.saves}</span>
-                <span>💬 {note.comments}</span>
-                {note.shares && <span>↗ {note.shares}</span>}
-              </div>
-
-              <div class="card-actions justify-end mt-3">
-                <a
-                  href={note.link}
-                  target="_blank"
-                  class="btn btn-sm"
-                  style="background-color: #8B5E3C; color: white; border: none;"
-                >
-                  查看笔记 →
-                </a>
-              </div>
-
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-  </div>
-</Layout>
+const xhsConvert = [
+  {
+    title: '跟旅行团游泰国大城 发现导游是冷门女歌手',
+    desc: '内容转化案例，旅行体验引发粉丝互动与传播。',
+    link: 'https://www.xiaohongshu.com/discovery/item/69f66beb000000001a02d5c5?source=webshare&xhsshare=pc_web&xsec_token=ABdadtVAt62243TfrAhcnthQt2VZo1p32ZK6Wpk60ykUc=&xsec_source=pc_share',
+  },
+  {
+    title: '曼谷烟花秀首日',
+    desc: '内容转化案例，现场记录引发高互动与转发传播。',
+    link: 'https://www.xiaohongshu.com/discovery/item/6932f5d7000000001e03b6dd?source=webshare&xhsshare=pc_web&xsec_token=ABaPJvrxyoAh6Tego-WJtVegZTlPdwHD0o0SLksHLuOK8=&xsec_source=pc_share',
+  },
+]
