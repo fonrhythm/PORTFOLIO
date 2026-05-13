@@ -1,11 +1,16 @@
 ---
 import { isExperience } from '@/types/cv';
 import type { Experience, Education } from '@/types/cv';
+
 interface Props {
 	elements: (Experience | Education)[]
 	colored: boolean
 }
 const { elements, colored } = Astro.props
+
+function parseBold(text: string): string {
+	return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+}
 ---
 <ul class='timeline timeline-snap-icon timeline-compact timeline-vertical'>
 	{
@@ -27,10 +32,10 @@ const { elements, colored } = Astro.props
 				</div>
 				<div class='timeline-end mb-10'>
 					<time class='font-mono italic'>{element.time}</time>
-                    <div class='text-xl font-black'>{isExperience(element) ? element.title : element.degree}</div>
-                    <div class='text-base opacity-80 font-semibold'>{isExperience(element) ? element.company : element.school}</div>
-                    <div class='text-sm opacity-60'>{element.location}</div>
-                    <div class='whitespace-pre-line text-base mt-2 tracking-[0.025em]'>{element.description}</div>
+					<div class='text-lg font-black'>{isExperience(element) ? element.title : element.degree}</div>
+					<div class='text-sm opacity-70'>{isExperience(element) ? element.company : element.school}</div>
+					<div class='text-xs opacity-50'>{element.location}</div>
+					<div class='whitespace-pre-line text-sm mt-2' set:html={parseBold(element.description ?? '')} />
 				</div>
 				<hr class:list={[{ 'bg-[#8B5E3C]': colored }]} />
 			</li>
