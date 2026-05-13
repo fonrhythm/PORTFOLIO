@@ -34,7 +34,7 @@ if (education.length > 0) {
 
   <!-- 求职意向 -->
   <section class='mb-10'>
-    <h2 class='text-xl font-bold mb-3 border-b pb-2'>Target Roles / 求职意向</h2>
+    <h2 class='text-xl font-bold mb-3 border-b pb-2'>求职意向 / Target Roles</h2>
     <div class='flex flex-wrap gap-2'>
       {['小红书运营', '公众号运营', '文案 / 资深文案', '项目执行', '活动策划'].map(role => (
         <span class='badge badge-outline text-sm px-3 py-1'>{role}</span>
@@ -45,7 +45,7 @@ if (education.length > 0) {
   <!-- 工作经历 -->
   {orderedExperiences.length > 0 && (
     <section class='mb-10'>
-      <h2 class='text-xl font-bold mb-4 border-b pb-2'>Work Experience / 工作经历</h2>
+      <h2 class='text-xl font-bold mb-4 border-b pb-2'>工作经历 / Work Experience</h2>
       <CvTimeline elements={orderedExperiences} colored={true} />
     </section>
   )}
@@ -53,7 +53,7 @@ if (education.length > 0) {
   <!-- 教育背景 -->
   {orderedEducations.length > 0 && (
     <section class='mb-10'>
-      <h2 class='text-xl font-bold mb-4 border-b pb-2'>Education / 教育背景</h2>
+      <h2 class='text-xl font-bold mb-4 border-b pb-2'>教育背景 / Education</h2>
       <CvTimeline elements={orderedEducations} colored={true} />
     </section>
   )}
@@ -61,14 +61,14 @@ if (education.length > 0) {
   <!-- 技能 -->
   {skills.length > 0 && (
     <section class='mb-10'>
-      <h2 class='text-xl font-bold mb-4 border-b pb-2'>Skills / 技能</h2>
+      <h2 class='text-xl font-bold mb-4 border-b pb-2'>技能 / Skills</h2>
       <List listTitle='' listItems={skills} />
     </section>
   )}
 
   <!-- 数据亮点 -->
   <section class='mb-10'>
-    <h2 class='text-xl font-bold mb-4 border-b pb-2'>Key Metrics / 数据亮点</h2>
+    <h2 class='text-xl font-bold mb-4 border-b pb-2'>数据亮点 / Key Metrics</h2>
     <div class='grid grid-cols-2 md:grid-cols-4 gap-4'>
       {[
         { number: '100+', label: '新媒体图文', sub: 'Published Articles' },
