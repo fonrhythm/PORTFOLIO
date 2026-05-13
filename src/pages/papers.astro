@@ -20,7 +20,44 @@ const contestPieces = publications.filter(p =>
 
 )
 
+const xhsInsight = [
+  {
+    title: 'GMM Music X 腾讯音乐 (TME) 战略合作',
+    desc: '深度分析泰国音乐巨头与中国流媒体平台的强强联手及行业影响。',
+    link: 'https://www.xiaohongshu.com/discovery/item/69e887de000000001b023178'
+  },
+  {
+    title: '泰乐圈再震❗️环球音乐注资泰国独立厂牌',
+    desc: '国际资本入局，泰国独立音乐生态位正面临重塑与震荡。',
+    link: 'https://www.xiaohongshu.com/discovery/item/69bef465000000002301797b'
+  }
+]
 
+const xhsLongform = [
+  {
+    title: '泰剧洪沙瓦底抄袭？事情可能远不及如此',
+    desc: '深度内容创作：从版权纠纷透视泰国历史剧的文化出海困局。',
+    link: 'https://www.xiaohongshu.com/discovery/item/69f72c6e000000001f003dcf'
+  },
+  {
+    title: '正片里未详细描述 但却处处刻着的时代印记',
+    desc: '深度考据：拆解剧集细节中隐藏的历史互文与社会文化符号。',
+    link: 'https://www.xiaohongshu.com/discovery/item/68cb906d0000000011015295'
+  }
+]
+
+const xhsConvert = [
+  {
+    title: '跟旅行团游泰国大城 发现导游是冷门女歌手',
+    desc: '内容转化案例：从旅行偶遇到艺人深度挖掘，引发高互动传播。',
+    link: 'https://www.xiaohongshu.com/discovery/item/69f66beb000000001a02d5c5'
+  },
+  {
+    title: '曼谷烟花秀首日🥹🫶🏻',
+    desc: '现场记录：绚烂瞬间的视觉呈现与高热度社交媒体传播。',
+    link: 'https://www.xiaohongshu.com/discovery/item/6932f5d7000000001e03b6dd'
+  }
+]
 
 const xhsNotes = [
 
@@ -521,7 +558,65 @@ const xhsNotes = [
       </div>
 
     </section>
- 
+
+<!-- 小红书运营板块 -->
+    <section class="mb-14">
+      <h2 class="text-xl font-bold mb-1 border-b pb-2">小红书运营 · Xiaohongshu</h2>
+
+      <!-- 行业洞察 -->
+      <h3 class="text-base font-semibold mt-6 mb-1">行业洞察 · Industry Insight</h3>
+      <p class="text-sm opacity-50 mb-4">泰国音乐市场动态分析与行业观察</p>
+      <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        {xhsInsight.map(note => (
+          <div class="card bg-base-200 hover:shadow-md transition-shadow">
+            <div class="card-body p-5">
+              <h3 class="font-bold text-base">{note.title}</h3>
+              <p class="text-sm opacity-60 mt-1">{note.desc}</p>
+              <div class="card-actions justify-end mt-3">
+                <a href={note.link} target="_blank" class="btn btn-sm" style="background-color: #8B5E3C; color: white; border: none;">查看笔记 →</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- 长图文 -->
+      <h3 class="text-base font-semibold mb-1">长图文呈现 · Long-form Content</h3>
+      <p class="text-sm opacity-50 mb-4">深度内容创作，议题分析与考据研究</p>
+      <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        {xhsLongform.map(note => (
+          <div class="card bg-base-200 hover:shadow-md transition-shadow">
+            <div class="card-body p-5">
+              <h3 class="font-bold text-base">{note.title}</h3>
+              <p class="text-sm opacity-60 mt-1">{note.desc}</p>
+              <div class="card-actions justify-end mt-3">
+                <a href={note.link} target="_blank" class="btn btn-sm" style="background-color: #8B5E3C; color: white; border: none;">查看笔记 →</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- 内容转化 -->
+      <h3 class="text-base font-semibold mb-1">内容转化 · Content Conversion</h3>
+      <p class="text-sm opacity-50 mb-4">现场记录与生活内容引发高互动与传播</p>
+      <div class="not-prose grid grid-cols-1 md:grid-cols-2 gap-4">
+        {xhsConvert.map(note => (
+          <div class="card bg-base-200 hover:shadow-md transition-shadow">
+            <div class="card-body p-5">
+              <h3 class="font-bold text-base">{note.title}</h3>
+              <p class="text-sm opacity-60 mt-1">{note.desc}</p>
+              <div class="card-actions justify-end mt-3">
+                <a href={note.link} target="_blank" class="btn btn-sm" style="background-color: #8B5E3C; color: white; border: none;">查看笔记 →</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
   </div>
 
 </Layout>
